@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <title></title>
+</head>
+<body>
+<div>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>mark</th>
+            <th>model</th>
+            <th>price</th>
+        </tr>
+        </thead>
+        <tr th:each="car : ${cars}">
+            <td th:text="${car.mark()}">brand</td>
+            <td th:text="${car.model()}">color</td>
+            <td th:text="${car.price()}">power</td>
+        </tr>
+
+    </table>
+</div>
+</body>
+</html>
