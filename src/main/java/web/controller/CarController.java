@@ -18,14 +18,13 @@ public class CarController {
     }
 
     @GetMapping("/cars")
-    public String printTableWithAllCars(ModelMap model,
-                                        @RequestParam(required = false) Optional<Integer> count) {
+    public String printTableWithCars(ModelMap model,
+                                     @RequestParam(required = false) Optional<Integer> count) {
 
-        count.ifPresentOrElse(
-                cnt -> model.addAttribute("cars",
-                        carService.getSpecificCarCount(cnt)),
-                () -> model.addAttribute("cars",
-                        carService.getAllCars()));
+        //вот так мне больше нравится.
+        // В сервисе тоже сделал 1 метод из 2х. :)
+        model.addAttribute("cars",
+                        carService.getCarsWithOptionalCount(count));
         return "cars";
     }
 }

@@ -3,8 +3,8 @@ package web.services;
 import web.model.Car;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface CarService {
-    List<Car> getAllCars();
-    List<Car> getSpecificCarCount(Integer count);
+    List<Car> getCarsWithOptionalCount(Optional<Integer> count);
 }

@@ -6,6 +6,7 @@ import web.model.Car;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CarServiceImpl implements CarService {
@@ -18,18 +19,8 @@ public class CarServiceImpl implements CarService {
         }
     }
 
-    @Override
-    public List<Car> getAllCars() {
-        return cars;
-    }
-
-    public List<Car> getSpecificCarCount(Integer count) {
-        if (count <= 0) {
-            return Collections.emptyList();
-        }
-        return cars.stream()
-                .limit(count)
-                .toList();
-
+    public List<Car> getCarsWithOptionalCount(Optional<Integer> count) {
+        return count.map(x -> cars.stream().limit(x).toList())
+                 .orElse(cars);
     }
 }

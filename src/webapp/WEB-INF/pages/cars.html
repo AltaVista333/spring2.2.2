@@ -18,9 +18,9 @@
         </tr>
         </thead>
         <tr th:each="car : ${cars}">
-            <td th:text="${car.mark()}">brand</td>
-            <td th:text="${car.model()}">color</td>
-            <td th:text="${car.price()}">power</td>
+            <td th:text="${car.getMark()}">brand</td>
+            <td th:text="${car.getModel()}">color</td>
+            <td th:text="${car.getPrice()}">power</td>
         </tr>
 
     </table>
